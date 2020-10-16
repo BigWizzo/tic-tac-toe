@@ -1,11 +1,13 @@
 #!/usr/bin/env ruby
 
+# rubocop:disable Metrics/MethodLength,
+
 class TicTacToe
   def greeter
     puts "What's your name?"
     name = gets.chomp.capitalize!
 
-    puts "Welcome to Tic Tac Toe " + name + " . You are Player1"
+    puts "Welcome to Tic Tac Toe #{name} You are Player1"
     puts 'Read the Game instructions below.'
     puts '1. The board presented to you has 9 squares numbered from 1 - 9'
     puts '2. Pick a chip either "X" or "O"'
@@ -15,6 +17,7 @@ class TicTacToe
 
     puts 'When you ready please pick a symbol [X/O]'
     chip = gets.chomp.upcase!
+    puts "You have chosen #{chip} as your chip"
 
     puts 'Place Your First Chip: Choose from 1 - 9'
     first_move = gets.chomp.upcase
@@ -25,7 +28,7 @@ class TicTacToe
     second_move = gets.chomp.upcase
     puts "#{second_move} is displayed on the board"
     # Player2 opportunity to play
-    
+
     puts "Place Your Third Chip: Choose from 1 - 9: except from #{first_move} and #{second_move}"
     third_move = gets.chomp.upcase
     puts "#{third_move} is displayed on the board"
@@ -41,3 +44,5 @@ end
 obj = TicTacToe.new
 
 obj.greeter
+
+# rubocop:enable Metrics/MethodLength,
