@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+class TicTacToe
+  def greeter
+    'Hello World!'
+  end
+end
+
+obj = TicTacToe.new
+
+puts obj.greeter

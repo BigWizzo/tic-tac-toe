@@ -1,59 +1,43 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# TicTacToe
 
-> One paragraph statement about the project.
+> Useing ruby object oriented programming to develop the game.
 
-![screenshot](./app_screenshot.png)
+
 
 Additional description about the project and its features.
 
 ## Built With
 
-- Major languages,
-- frameworks,
-- technologies used
-
-## Live Demo
-
-[Live Demo Link](https://livedemo.com)
-
+- Ruby
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
+**Need web browser.** to download Repository
+**Need Terminal** to run the code
 
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
-
-### Setup
-
-### Install
-
-### Usage
-
-### Run tests
-
-### Deployment
-
-
+### Download Repository (https://github.com/BigWizzo/tic-tac-toe)
+### open Terminal
+### cd tictactoe
+### ruby enumerable.rb
 
 ## Authors
 
-👤 **Author1**
+👤 **Gabriel Gitonga**
 
-- Github: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- Linkedin: [linkedin](https://linkedin.com/linkedinhandle)
+- Github: [@Gabkings](https://github.com/Gabkings/BubbleSort)
+- Linkedin: [linkedin](https://www.linkedin.com/in/gabriel-gitonga-b5a611183/)
 
-👤 **Author2**
+👤 **Will Nyamunokora**
+- Github: [@githubhandle](https://github.com/bigwizzo) 
+- Linkedin: [linkedin](https://linkedin.com/in/willnyamunokora) 
 
-- Github: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- Linkedin: [linkedin](https://linkedin.com/linkedinhandle)
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
 
 ## 🤝 Contributing
 
