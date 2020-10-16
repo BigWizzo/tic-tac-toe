@@ -2,10 +2,42 @@
 
 class TicTacToe
   def greeter
-    'Hello World!'
+    puts "What's your name?"
+    name = gets.chomp.capitalize!
+
+    puts "Welcome to Tic Tac Toe " + name + " . You are Player1"
+    puts 'Read the Game instructions below.'
+    puts '1. The board presented to you has 9 squares numbered from 1 - 9'
+    puts '2. Pick a chip either "X" or "O"'
+    puts '3. To win the game, You need to get 3 chips in a straight line. (Horizontal, Vertical, or Diagonal)'
+    puts '4. Try to avoid your opponent from winning by strategically placing your chips'
+    puts '5. If no player makes a straight line of 3 chips, the game is a draw'
+
+    puts 'When you ready please pick a symbol [X/O]'
+    chip = gets.chomp.upcase!
+
+    puts 'Place Your First Chip: Choose from 1 - 9'
+    first_move = gets.chomp.upcase
+    # Player2 opportunity to play
+    puts "#{first_move} is displayed on the board"
+
+    puts "Place Your Second Chip: Choose from 1 - 9: except from #{first_move}"
+    second_move = gets.chomp.upcase
+    puts "#{second_move} is displayed on the board"
+    # Player2 opportunity to play
+    
+    puts "Place Your Third Chip: Choose from 1 - 9: except from #{first_move} and #{second_move}"
+    third_move = gets.chomp.upcase
+    puts "#{third_move} is displayed on the board"
+    # Player2 opportunity to play
+
+    puts "Congratulations #{name}. You Won!!!"
+    # #{name} (Player1) has won if they make a straight line of 3 chips
+    # elsif Player2 won
+    # else game is a draw
   end
 end
 
 obj = TicTacToe.new
 
-puts obj.greeter
+obj.greeter
