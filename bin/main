@@ -26,7 +26,7 @@ while game && !winner && !all_moves
   # winner = false
   # all_moves = false
   # Puts playing board to the player
-  puts    '
+  puts '
   |   |   |   |
   -------------
   |   |   |   |
@@ -35,7 +35,7 @@ while game && !winner && !all_moves
   '
   puts "#{player_one} Place Your Chip on the board."
   move = gets.chomp.to_i
-  puts    '
+  puts '
   |   |   | X |
   -------------
   |   |   |   |
@@ -44,7 +44,7 @@ while game && !winner && !all_moves
   '
   puts "#{player_two} Place Your Chip on the board."
   move = gets.chomp.to_i
-  puts    '
+  puts '
   |   |   | X |
   -------------
   |   | O |   |
@@ -54,7 +54,7 @@ while game && !winner && !all_moves
 
   puts "#{player_one} Place Your Chip on the board."
   move = gets.chomp.to_i
-  puts    '
+  puts '
   |   |   | X |
   -------------
   |   | O | X  |
@@ -64,7 +64,7 @@ while game && !winner && !all_moves
 
   puts "#{player_two} Place Your Chip on the board."
   move = gets.chomp.to_i
-  puts    '
+  puts '
   |   |   | X |
   -------------
   |   | O | X |
@@ -86,7 +86,7 @@ while game && !winner && !all_moves
   # winner = false
   # This means the game has been a DRAW
   puts "#{player_one} and #{player_two} Your game has been a DRAW"
-  puts    '
+  puts '
   | X | O | X |
   -------------
   |   | O | X |
@@ -101,14 +101,14 @@ while game && !winner && !all_moves
   # all_moves = true
   # This means the game has a winner
   puts "#{player_one} You have won the Game"
-  puts    '
+  puts '
   | X | O | X |
   -------------
   |   | X | O |
   -------------
   | O | X | X |
   '
-  puts 'Congratulations'
+  puts "Congratulations #{move} was your winning move"
 
   game = false
   winner = true
