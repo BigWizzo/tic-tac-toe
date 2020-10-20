@@ -19,29 +19,48 @@ player_two = gets.chomp.capitalize!
 # puts "-----------LET'S BE PLAYING-------------"
 # 
 
-def display_bd(board)
-  display_bd = "
-  | #{board[0]} | #{board[1]} | #{board[2]} |
-  -------------
-  | #{board[3]} | #{board[4]} | #{board[5]} |
-  -------------
-  | #{board[6]} | #{board[7]} | #{board[8]} |
-  "
-  display_bd
+class Board
+  attr_reader :board, :winning_points
+
+  def initialize
+    @board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    @winning_points = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [6, 4, 2],
+      [0, 4, 8]
+    ]
+  end
+
+  def board
+    @board
+  end
+
+  def winning_points
+    @winning_points
+  end
+  
+  def display_bd
+    display_bd = "
+    | #{@board[0]} | #{@board[1]} | #{@board[2]} |
+    -------------
+    | #{@board[3]} | #{@board[4]} | #{@board[5]} |
+    -------------
+    | #{@board[6]} | #{@board[7]} | #{@board[8]} |
+    "
+    display_bd
+
+  end 
 end
 
-win_combo = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  [6, 4, 2],
-  [0, 4, 8]
-]
+the_board = Board.new
+board = the_board.board
+winning_points = the_board.winning_points
 
-board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 x_count = []
 o_count = []
 turn = 1
@@ -52,23 +71,19 @@ move_1 = gets.chomp.to_i
 range_one = (1...9).include? move_1
 board[move_1 - 1] = "X"
 
-if range_one && !board[move_1 - 1]
-  x_count.push(move_1 - 1)
-  puts display_bd(board)
-else
-  puts "Please enter a valid number between 1 - 9"
-end
+x_count.push(move_1 - 1)
+puts the_board.display_bd
 
-puts "2e Your Chip on the board."
+puts "#{player_two} Place Your Chip on the board."
 move_2 = gets.chomp.to_i
 o_count.push(move_2 - 1)
 board[move_2 - 1] = "O"
-puts display_bd(board)
+puts the_board.display_bd
 
 turn += 1
 
-win_one = win_combo.any?(x_count)
-win_two = win_combo.any?(o_count)
+win_one = winning_points.any?(x_count)
+win_two = winning_points.any?(o_count)
 
 if x_count.length == 3 && win_one
   puts "Congrats #{player_one} You have won!!!"
