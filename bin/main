@@ -18,99 +18,57 @@ player_two = gets.chomp.capitalize!
 # puts "#{player_two} you play second your chip is #{chip_two}\n\n"
 # puts "-----------LET'S BE PLAYING-------------"
 # 
-# game = true
-# winner = false
-# all_moves = false
-# while game && !winner && !all_moves
-  # If game = true
-  # winner = false
-  # all_moves = false
-  # Puts playing board to the player
-  puts '
-  |   |   |   |
-  -------------
-  |   |   |   |
-  -------------
-  |   |   |   |
-  '
-  puts "#{player_one} Place Your Chip on the board."
-  move = gets.chomp.to_i
-  puts '
-  |   |   | X |
-  -------------
-  |   |   |   |
-  -------------
-  |   |   |   |
-  '
-  puts "#{player_two} Place Your Chip on the board."
-  move = gets.chomp.to_i
-  puts '
-  |   |   | X |
-  -------------
-  |   | O |   |
-  -------------
-  |   |   |   |
-  '
 
-  puts "#{player_one} Place Your Chip on the board."
-  move = gets.chomp.to_i
-  puts '
-  |   |   | X |
+def display_bd(board)
+  display_bd = "
+  | #{board[0]} | #{board[1]} | #{board[2]} |
   -------------
-  |   | O | X  |
+  | #{board[3]} | #{board[4]} | #{board[5]} |
   -------------
-  |   |   |   |
-  '
+  | #{board[6]} | #{board[7]} | #{board[8]} |
+  "
+  display_bd
+end
 
-  puts "#{player_two} Place Your Chip on the board."
-  move = gets.chomp.to_i
-  puts '
-  |   |   | X |
-  -------------
-  |   | O | X |
-  -------------
-  |   |   | O |
-  '
+win_combo = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [6, 4, 2],
+  [0, 4, 8]
+]
 
-  # Check If Player
-  # Has put in a valid integer between 1 - 9
-  # Tell player to put a valid integer
-  # else continue
+board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+x_count = []
+o_count = []
+turn = 1
+while turn < 4
+puts "#{player_one} Place Your Chip on the board."
+move_1 = gets.chomp.to_i
+x_count.push(move_1 - 1)
+board[move_1 - 1] = "X"
+puts display_bd(board)
 
-  puts "#{player_one} Place Your Chip on the board."
-  move = gets.chomp.to_i
-  puts "Invalid play! Please select another number between 1 - 9\n\n"
+puts "#{player_two} Place Your Chip on the board."
+move_2 = gets.chomp.to_i
+o_count.push(move_2 - 1)
+board[move_2 - 1] = "O"
+puts display_bd(board)
 
-  # If
-  # game = false or all_moves = true
-  # winner = false
-  # This means the game has been a DRAW
-  puts "#{player_one} and #{player_two} Your game has been a DRAW"
-  puts '
-  | X | O | X |
-  -------------
-  |   | O | X |
-  -------------
-  | O | X | O |
-  '
-  puts "DO you want to try again\n\n"
+turn += 1
 
-  # If
-  # game = false
-  # winner = true
-  # all_moves = true
-  # This means the game has a winner
-  puts "#{player_one} You have won the Game"
-  puts '
-  | X | O | X |
-  -------------
-  |   | X | O |
-  -------------
-  | O | X | X |
-  '
-  puts "Congratulations #{move} was your winning move"
+win_one = win_combo.any?(x_count)
+win_two = win_combo.any?(o_count)
 
-  game = false
-  winner = true
-  all_moves = true
+if x_count.length == 3 && win_one
+  puts "Congrats #{player_one} You have won!!!"
+elsif o_count.length == 3 && win_two
+  puts "Congrats #{player_two} You have won!!!"
+elsif x_count.length == 3 && o_count.length == 3 && !win_one && !win_two
+  puts "This is a DRAW"
+end
+
 end
