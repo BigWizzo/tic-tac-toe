@@ -59,7 +59,7 @@ else
   puts "Please enter a valid number between 1 - 9"
 end
 
-puts "#{player_two} Place Your Chip on the board."
+puts "2e Your Chip on the board."
 move_2 = gets.chomp.to_i
 o_count.push(move_2 - 1)
 board[move_2 - 1] = "O"
