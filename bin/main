@@ -48,9 +48,19 @@ turn = 1
 while turn < 4
 puts "#{player_one} Place Your Chip on the board."
 move_1 = gets.chomp.to_i
-x_count.push(move_1 - 1)
-board[move_1 - 1] = "X"
-puts display_bd(board)
+
+range_one = (1...9).include? move_1
+board[move_1 - 1] = pos_one
+pos_one = "X"
+# p range_one
+
+if range_one && 
+  x_count.push(move_1 - 1)
+  # board[move_1 - 1] = "X"
+  puts display_bd(board)
+else
+  puts "Please enter a valid number between 1 - 9"
+end
 
 puts "#{player_two} Place Your Chip on the board."
 move_2 = gets.chomp.to_i
