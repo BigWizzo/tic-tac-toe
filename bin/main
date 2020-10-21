@@ -1,11 +1,116 @@
 #!/usr/bin/env ruby
 
-class TicTacToe
-  def greeter
-    'Hello World!'
-  end
+puts "Player 1, What's your name?"
+player_one = gets.chomp.capitalize!
+
+puts "Player 2, What's your name?"
+player_two = gets.chomp.capitalize!
+
+puts 'Welcome to the Tic Tac Toe Game'
+puts 'Please read the Game instructions below.'
+puts '1. The board presented to you has 9 squares numbered from 1 - 9'
+puts '2. To win the game, You need to get 3 chips in a straight line. (Horizontal, Vertical, or Diagonal)'
+puts '3. Try to avoid your opponent from winning by strategically placing your chips'
+puts '4. If no player makes a straight line of 3 chips, the game is a draw'
+chip_one = 'x'.upcase
+chip_two = 'o'.upcase
+puts "#{player_one} you play first your chip is #{chip_one}"
+puts "#{player_two} you play second your chip is #{chip_two}\n\n"
+puts "-----------LET'S BE PLAYING-------------"
+
+game = true
+winner = false
+all_moves = false
+while game && !winner && !all_moves
+  # If game = true
+  # winner = false
+  # all_moves = false
+  # Puts playing board to the player
+  puts '
+  |   |   |   |
+  -------------
+  |   |   |   |
+  -------------
+  |   |   |   |
+  '
+  puts "#{player_one} Place Your Chip on the board."
+  move = gets.chomp.to_i
+  puts '
+  |   |   | X |
+  -------------
+  |   |   |   |
+  -------------
+  |   |   |   |
+  '
+  puts "#{player_two} Place Your Chip on the board."
+  move = gets.chomp.to_i
+  puts '
+  |   |   | X |
+  -------------
+  |   | O |   |
+  -------------
+  |   |   |   |
+  '
+
+  puts "#{player_one} Place Your Chip on the board."
+  move = gets.chomp.to_i
+  puts '
+  |   |   | X |
+  -------------
+  |   | O | X  |
+  -------------
+  |   |   |   |
+  '
+
+  puts "#{player_two} Place Your Chip on the board."
+  move = gets.chomp.to_i
+  puts '
+  |   |   | X |
+  -------------
+  |   | O | X |
+  -------------
+  |   |   | O |
+  '
+
+  # Check If Player
+  # Has put in a valid integer between 1 - 9
+  # Tell player to put a valid integer
+  # else continue
+
+  puts "#{player_one} Place Your Chip on the board."
+  move = gets.chomp.to_i
+  puts "Invalid play! Please select another number between 1 - 9\n\n"
+
+  # If
+  # game = false or all_moves = true
+  # winner = false
+  # This means the game has been a DRAW
+  puts "#{player_one} and #{player_two} Your game has been a DRAW"
+  puts '
+  | X | O | X |
+  -------------
+  |   | O | X |
+  -------------
+  | O | X | O |
+  '
+  puts "DO you want to try again\n\n"
+
+  # If
+  # game = false
+  # winner = true
+  # all_moves = true
+  # This means the game has a winner
+  puts "#{player_one} You have won the Game"
+  puts '
+  | X | O | X |
+  -------------
+  |   | X | O |
+  -------------
+  | O | X | X |
+  '
+  puts "Congratulations #{move} was your winning move"
+
+  game = false
+  winner = true
+  all_moves = true
 end
-
-obj = TicTacToe.new
-
-puts obj.greeter
