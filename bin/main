@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+
 # rubocop:disable Lint/AssignmentInCondition
 
 require_relative '../lib/player.rb'
@@ -10,14 +11,12 @@ board = the_board.board
 winning_points = the_board.winning_points
 
 # Instantiate the Players
-player_first = Player.new
-player_second = Player.new
-player_one = player_first.player
-player_two = player_second.player
-move_one = player_first.player_move
-move_two = player_second.player_move
-win_one = player_first.win
-win_two = player_second.win
+player_one = Player.new
+player_two = Player.new
+move_one = player_one.player_move
+move_two = player_two.player_move
+win_one = player_one.win
+win_two = player_two.win
 
 puts "Player 1, What's your name?"
 player_one = gets.chomp.capitalize!
@@ -85,4 +84,4 @@ while turn < 4
   end
 end
 
-# rubocop:disable Lint/AssignmentInCondition
+# rubocop:enable Lint/AssignmentInCondition

@@ -7,9 +7,4 @@ class Player
     @player_move = player_move
     @win = win
   end
-
-  def player_move
-    @move
-  end
 end
-
