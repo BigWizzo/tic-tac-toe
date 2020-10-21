@@ -35,6 +35,4 @@ class Board
   
     end 
   end
-  the_board = Board.new
-  board = the_board.board
-  winning_points = the_board.winning_points
+  
