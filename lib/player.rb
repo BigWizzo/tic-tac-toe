@@ -1,4 +1,4 @@
-# This is a clas for player
+# This is a class for player
 class Player
   attr_reader :player, :player_move, :win
 
