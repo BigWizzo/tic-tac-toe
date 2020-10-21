@@ -37,7 +37,6 @@ class Board
 
   end 
 end
-
 the_board = Board.new
 board = the_board.board
 winning_points = the_board.winning_points
@@ -63,7 +62,6 @@ class Player
     @win
    end
 end
-
 player_first = Player.new
 player_one = player_first.player
 
@@ -105,20 +103,39 @@ x_count = []
 o_count = []
 turn = 1
 while turn < 4
-puts "#{player_one} Place Your Chip on the board."
-move_one = gets.chomp.to_i
+prompt_one = "#{player_one} Place Your Chip on the board."
+puts prompt_one
 
-range_one = (1...9).include? move_one
-board[move_one - 1] = "X"
+  while move_one = gets.chomp.to_i # loop while getting user input
+    range_one = (1...9).include? move_one
+    case
+    when range_one == true
+      board[move_one - 1] = "X"
+      x_count.push(move_one - 1)
+      puts the_board.display_bd
+      break # make sure to break so you don't ask again
+    else
+      puts "Your input is invalid. Put a number between 1 - 9"
+      puts prompt_one # print the prompt, so the user knows to re-enter input
+    end
+  end
 
-x_count.push(move_one - 1)
-puts the_board.display_bd
+  prompt_two = "#{player_two} Place Your Chip on the board."
+  puts prompt_two
 
-puts "#{player_two} Place Your Chip on the board."
-move_two = gets.chomp.to_i
-o_count.push(move_two - 1)
-board[move_two - 1] = "O"
-puts the_board.display_bd
+  while move_two = gets.chomp.to_i # loop while getting user input
+    range_two = (1...9).include? move_two
+    case
+    when range_two == true
+      board[move_two - 1] = "O"
+      o_count.push(move_two - 1)
+      puts the_board.display_bd
+      break # make sure to break so you don't ask again
+    else
+      puts "Your input is invalid. Put a number between 1 - 9"
+      puts prompt_two # print the prompt, so the user knows to re-enter input
+    end
+  end
 
 turn += 1
 
