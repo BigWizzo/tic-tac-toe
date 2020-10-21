@@ -1,12 +1,23 @@
 #!/usr/bin/env ruby
-# frozen_string_literal: true
+# rubocop:disable Lint/AssignmentInCondition
 
 require_relative '../lib/player.rb'
 require_relative '../lib/board.rb'
 
+# Instiantiate the board
 the_board = Board.new
 board = the_board.board
 winning_points = the_board.winning_points
+
+# Instantiate the Players
+player_first = Player.new
+player_second = Player.new
+player_one = player_first.player
+player_two = player_second.player
+move_one = player_first.player_move
+move_two = player_second.player_move
+win_one = player_first.win
+win_two = player_second.win
 
 puts "Player 1, What's your name?"
 player_one = gets.chomp.capitalize!
@@ -32,9 +43,8 @@ turn = 1
 while turn < 4
   prompt_one = "#{player_one} Place Your Chip on the board."
   puts prompt_one
-
   while move_one = gets.chomp.to_i # loop while getting user input
-    range_one = (1...9).include? move_one
+    range_one = (1..9).include? move_one
     if range_one == true
       board[move_one - 1] = 'X'
       x_count.push(move_one - 1)
@@ -48,9 +58,8 @@ while turn < 4
 
   prompt_two = "#{player_two} Place Your Chip on the board."
   puts prompt_two
-
   while move_two = gets.chomp.to_i # loop while getting user input
-    range_two = (1...9).include? move_two
+    range_two = (1..9).include? move_two
     if range_two == true
       board[move_two - 1] = 'O'
       o_count.push(move_two - 1)
@@ -74,5 +83,6 @@ while turn < 4
   elsif x_count.length == 3 && o_count.length == 3 && !win_one && !win_two
     puts 'This is a DRAW'
   end
-
 end
+
+# rubocop:disable Lint/AssignmentInCondition
