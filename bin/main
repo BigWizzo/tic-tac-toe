@@ -48,7 +48,7 @@ while game == true
     range_one = (1..9).include? move_one
     if range_one == true && board[move_one - 1].is_a?(Integer)
       board[move_one - 1] = "X"
-      x_count.push(move_one - 1)
+      x_count.push(move_one)
       puts the_board.display_bd
       p x_count.last(3).sort
       p x_count.length
@@ -70,7 +70,7 @@ while game == true
     range_two = (1..9).include? move_two
     if range_two == true && board[move_two - 1].is_a?(Integer)
       board[move_two - 1] = 'O'
-      o_count.push(move_two -1)
+      o_count.push(move_two)
       puts the_board.display_bd
       p o_count.last(3).sort
       p o_count.length
