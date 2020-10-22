@@ -35,7 +35,11 @@ puts "#{player_two} you play second your chip is #{chip_two}\n\n"
 puts "-----------LET'S BE PLAYING-------------"
 
 x_count = []
-o_count = []
+o_count = [0]
+win_one = winning_points.any?(x_count.last(3).sort)
+win_two = winning_points.any?(o_count.last(3).sort)
+p o_count.last(3).sort
+p win_two
 game = true
 while game == true
   prompt_one = "#{player_one} Place Your Chip on the board."
@@ -46,7 +50,13 @@ while game == true
       board[move_one - 1] = "X"
       x_count.push(move_one - 1)
       puts the_board.display_bd
-      p x_count
+      p x_count.last(3).sort
+      p x_count.length
+      p win_one
+      if win_one == true
+        puts "Congrats #{player_one} You have won!!!"
+        game = false
+      end
       break
     else
       puts 'Your input is invalid. Put a number between 1 - 9 on unoccupied spot'
@@ -60,9 +70,15 @@ while game == true
     range_two = (1..9).include? move_two
     if range_two == true && board[move_two - 1].is_a?(Integer)
       board[move_two - 1] = 'O'
-      o_count.push(move_two - 1)
+      o_count.push(move_two -1)
       puts the_board.display_bd
-      p o_count
+      p o_count.last(3).sort
+      p o_count.length
+      p win_two
+      if win_two == true
+        puts "Congrats #{player_two} You have won!!!"
+        game = false
+      end
       break
     else
       puts 'Your input is invalid. Put a number between 1 - 9'
@@ -70,16 +86,7 @@ while game == true
     end
   end
 
-  win_one = winning_points.any?(x_count)
-  win_two = winning_points.any?(o_count)
-
-  if x_count.length == 3 && win_one
-    puts "Congrats #{player_one} You have won!!!"
-    game = false
-  elsif o_count.length == 3 && win_two
-    puts "Congrats #{player_two} You have won!!!"
-    game = false
-  elsif (x_count.length + o_count.length) == 9 && !win_one && !win_two
+  if (x_count.length + o_count.length) == 9 && !win_one && !win_two
     puts (x_count.length + o_count.length)
     puts 'This is a DRAW'
     game = false
