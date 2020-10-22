@@ -35,7 +35,7 @@ puts "#{player_two} you play second your chip is #{chip_two}\n\n"
 puts "-----------LET'S BE PLAYING-------------"
 
 x_count = []
-o_count = [0]
+o_count = []
 win_one = winning_points.any?(x_count.last(3).sort)
 win_two = winning_points.any?(o_count.last(3).sort)
 p o_count.last(3).sort
