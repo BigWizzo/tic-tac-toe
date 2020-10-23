@@ -1,19 +1,17 @@
 # This is the Board class
 class Board
-  attr_reader :board, :winning_points
+  attr_reader :board, :a, :b, :c, :d, :e, :f, :g, :h
 
   def initialize
     @board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    @winning_points = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [2, 4, 6],
-      [0, 4, 8]
-    ]
+      @a = [0, 1, 2]
+      @b = [3, 4, 5]
+      @c = [6, 7, 8]
+      @d = [0, 3, 6]
+      @e = [1, 4, 7]
+      @f = [2, 5, 8]
+      @g = [2, 4, 6]
+      @h = [0, 4, 8]
   end
 
   def display_bd
