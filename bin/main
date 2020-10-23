@@ -37,7 +37,7 @@ puts "-----------LET'S BE PLAYING-------------"
 x_count = []
 o_count = []
 turn = 1
-while turn < 10
+while turn < 6
   prompt_one = "#{player_one} Place Your Chip on the board."
   puts prompt_one
   while move_one = gets.chomp.to_i
@@ -51,6 +51,13 @@ while turn < 10
       puts 'Your input is invalid. Put a number between 1 - 9 on unoccupied spot'
       puts prompt_one
     end
+  end
+
+  break if board.all?(String)
+  win_one = winning_points.any?(x_count)
+  if x_count.length == 3 && win_one
+    puts "Congrats #{player_one} You have won!!!"
+    break
   end
 
   prompt_two = "#{player_two} Place Your Chip on the board."
@@ -68,18 +75,21 @@ while turn < 10
     end
   end
 
+  break if board.all?(String)
+  win_two = winning_points.any?(o_count)
+  if o_count.length == 3 && win_two
+    puts "Congrats #{player_two} You have won!!!"
+    break
+  end
+
+
+  if board.all?(String) && !win_one && !win_two
+    puts 'This is a DRAW'
+    break
+  end
+
   turn += 1
 
-  win_one = winning_points.any?(x_count)
-  win_two = winning_points.any?(o_count)
-
-  if x_count.length == 3 && win_one
-    puts "Congrats #{player_one} You have won!!!"
-  elsif o_count.length == 3 && win_two
-    puts "Congrats #{player_two} You have won!!!"
-  elsif x_count.length == 3 && o_count.length == 3 && !win_one && !win_two
-    puts 'This is a DRAW'
-  end
 end
 
 # rubocop:enable Lint/AssignmentInCondition
