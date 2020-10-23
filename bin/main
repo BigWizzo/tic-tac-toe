@@ -53,10 +53,12 @@ while turn < 6
     end
   end
 
-  break if board.all?(String)
   win_one = winning_points.any?(x_count)
-  if x_count.length == 3 && win_one
+  if x_count.length >= 3 && win_one
     puts "Congrats #{player_one} You have won!!!"
+    break
+  elsif board.all?(String)
+    puts 'This is a DRAW'
     break
   end
 
@@ -75,18 +77,15 @@ while turn < 6
     end
   end
 
-  break if board.all?(String)
   win_two = winning_points.any?(o_count)
-  if o_count.length == 3 && win_two
+  if o_count.length >= 3 && win_two
     puts "Congrats #{player_two} You have won!!!"
     break
-  end
-
-
-  if board.all?(String) && !win_one && !win_two
+  elsif board.all?(String) && !win_two
     puts 'This is a DRAW'
     break
   end
+
 
   turn += 1
 
