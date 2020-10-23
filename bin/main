@@ -36,19 +36,16 @@ puts "-----------LET'S BE PLAYING-------------"
 
 x_count = []
 o_count = []
-win_one = winning_points.any?(x_count.last(3).sort)
-win_two = winning_points.any?(o_count.last(3).sort)
-p o_count.last(3).sort
-p win_two
 game = true
 while game == true
   prompt_one = "#{player_one} Place Your Chip on the board."
   puts prompt_one
-  while move_one = gets.chomp.to_i 
+  while move_one = gets.chomp.to_i
+    win_one = winning_points.any?(x_count.last(3).sort)
     range_one = (1..9).include? move_one
     if range_one == true && board[move_one - 1].is_a?(Integer)
       board[move_one - 1] = "X"
-      x_count.push(move_one)
+      x_count.push(move_one - 1)
       puts the_board.display_bd
       p x_count.last(3).sort
       p x_count.length
@@ -56,6 +53,7 @@ while game == true
       if win_one == true
         puts "Congrats #{player_one} You have won!!!"
         game = false
+        break
       end
       break
     else
@@ -67,10 +65,11 @@ while game == true
   prompt_two = "#{player_two} Place Your Chip on the board."
   puts prompt_two
   while move_two = gets.chomp.to_i
+    win_two = winning_points.any?(o_count.last(3).sort)
     range_two = (1..9).include? move_two
     if range_two == true && board[move_two - 1].is_a?(Integer)
       board[move_two - 1] = 'O'
-      o_count.push(move_two)
+      o_count.push(move_two - 1)
       puts the_board.display_bd
       p o_count.last(3).sort
       p o_count.length
@@ -78,6 +77,7 @@ while game == true
       if win_two == true
         puts "Congrats #{player_two} You have won!!!"
         game = false
+        break
       end
       break
     else
