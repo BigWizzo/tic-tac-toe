@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 # rubocop:disable Lint/AssignmentInCondition
+module Enumerable
 
 require_relative '../lib/player.rb'
 require_relative '../lib/board.rb'
@@ -36,6 +37,17 @@ puts "-----------LET'S BE PLAYING-------------"
 
 x_count = []
 o_count = []
+
+
+# @winning_points.each do |x|
+  # x
+# end
+# p x
+# 
+# win_one = winning_points.any?(x_count.last(3).sort)
+# p win_one
+
+
 turn = 1
 while turn < 6
   prompt_one = "#{player_one} Place Your Chip on the board."
@@ -54,6 +66,8 @@ while turn < 6
   end
 
   win_one = winning_points.any?(x_count.last(3).sort)
+
+
   p x_count.last(3).sort
   p win_one
   if x_count.length >= 3 && win_one
@@ -91,6 +105,7 @@ while turn < 6
   end
 
   turn += 1
+end
 end
 
 # rubocop:enable Lint/AssignmentInCondition
