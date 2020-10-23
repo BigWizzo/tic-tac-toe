@@ -50,7 +50,7 @@ while game == true
       p x_count.last(3).sort
       p x_count.length
       p win_one
-      if win_one == true
+      if win_one
         puts "Congrats #{player_one} You have won!!!"
         game = false
         break
