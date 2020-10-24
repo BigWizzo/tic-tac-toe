@@ -43,19 +43,22 @@ module Enumerable
   puts "-----------LET'S BE PLAYING-------------"
   
   x_count = []
-  o_count = [0, 6, 8, 4]
-  count_two = o_count & a && b && c && d && e && f && g && h
-  p count_two
-  y_count = o_count & count_two
-  p y_count
+  o_count = [3, 7, 4, 5]
+  # count_two = o_count & (d)
+  
+  k = 0
+  while k < winning_points do
+    p winning_points[k]
+    k += 1
+  end
+
+  # y_count = o_count & count_two
 
   if count_two.length >= 3 && y_count.length == 3
     win_two = true
     elsif
     win_two = false
   end
-
-  p win_two
   
   turn = 1
   while turn < 6
