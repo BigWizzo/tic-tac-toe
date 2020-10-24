@@ -1,28 +1,29 @@
 #!/usr/bin/env ruby
 
 # rubocop:disable Lint/AssignmentInCondition
-module Enumerable
 
+# Importing the module Enumerable
+module Enumerable
   require_relative '../lib/player.rb'
   require_relative '../lib/board.rb'
-  
+
   the_board = Board.new
   board = the_board.board
   winning_points = the_board.winning_points
-  
+
   player_one = Player.new
   player_two = Player.new
   move_one = player_one.player_move
   move_two = player_two.player_move
   win_one = player_one.win
   win_two = player_two.win
-  
+
   puts "Player 1, What's your name?"
   player_one = gets.chomp.capitalize!
-  
+
   puts "Player 2, What's your name?"
   player_two = gets.chomp.capitalize!
-  
+
   puts 'Welcome to the Tic Tac Toe Game'
   puts 'Please read the Game instructions below.'
   puts '1. The board presented to you has 9 squares numbered from 1 - 9'
@@ -34,30 +35,10 @@ module Enumerable
   puts "#{player_one} you play first your chip is #{chip_one}"
   puts "#{player_two} you play second your chip is #{chip_two}\n\n"
   puts "-----------LET'S BE PLAYING-------------"
-  
+
   x_count = []
   o_count = []
-  # count_two = o_count & (d)
-  
-  # k = 0
-  # while k < winning_points.length do
-    # if (x_count & winning_points[k]).length == 3
-      # p (x_count & winning_points[k])
-      # win_one = true
-      # p win_one
-      # break
-    # end
-    # k += 1
-  # end
 
-  # y_count = o_count & count_two
-
-  # if count_two.length >= 3 && y_count.length == 3
-    # win_two = true
-    # elsif
-    # win_two = false
-  # end
-  
   turn = 1
   while turn < 6
     prompt_one = "#{player_one} Place Your Chip on the board."
@@ -65,35 +46,32 @@ module Enumerable
     while move_one = gets.chomp.to_i
       range_one = (1..9).include? move_one
       if range_one == true && board[move_one - 1].is_a?(Integer)
-        board[move_one - 1] = "X"
+        board[move_one - 1] = 'X'
         x_count.push(move_one - 1)
         puts the_board.display_bd
         break
       else
-        puts 'Your input is invalid. Put a number between 1 - 9 on unoccupied spot'
+        puts 'Your input is invalid. Put an available number between 1 - 9 on unoccupied spot'
         puts prompt_one
       end
     end
-  
-    p x_count  
+
     k = 0
-    while k < winning_points.length do
+    while k < winning_points.length
       if (x_count & winning_points[k]).length == 3
-        p (x_count & winning_points[k])
         win_one = true
         break
       end
       k += 1
     end
-    p win_one
     if win_one
-      puts "#{player_one} You have won!!!"
+      puts "#{player_one} You have won the game!!!"
       break
     elsif board.all?(String)
       puts 'This is a DRAW'
       break
     end
-  
+
     prompt_two = "#{player_two} Place Your Chip on the board."
     puts prompt_two
     while move_two = gets.chomp.to_i
@@ -104,30 +82,27 @@ module Enumerable
         puts the_board.display_bd
         break
       else
-        puts 'Your input is invalid. Put a number between 1 - 9'
+        puts 'Your input is invalid. Put an available number between 1 - 9'
         puts prompt_two
       end
     end
-  
-    p o_count
+
     g = 0
-    while g < winning_points.length do
+    while g < winning_points.length
       if (o_count & winning_points[g]).length == 3
-        p (o_count & winning_points[g])
         win_two = true
         break
       end
       g += 1
     end
-    p win_two 
     if win_two
-      puts "Congrats #{player_two} You have won!!!"
+      puts "Congrats #{player_two} You have won the game!!!"
       break
     elsif board.all?(String) && !win_two
       puts 'This is a DRAW'
       break
     end
-  
+
     turn += 1
   end
 end
