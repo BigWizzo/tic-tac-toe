@@ -8,14 +8,7 @@ module Enumerable
   
   the_board = Board.new
   board = the_board.board
-  a = the_board.a
-  b = the_board.b
-  c = the_board.c
-  d = the_board.d
-  e = the_board.e
-  f = the_board.f
-  g = the_board.g
-  h = the_board.h
+  winning_points = the_board.winning_points
   
   player_one = Player.new
   player_two = Player.new
@@ -43,22 +36,27 @@ module Enumerable
   puts "-----------LET'S BE PLAYING-------------"
   
   x_count = []
-  o_count = [3, 7, 4, 5]
+  o_count = []
   # count_two = o_count & (d)
   
-  k = 0
-  while k < winning_points do
-    p winning_points[k]
-    k += 1
-  end
+  # k = 0
+  # while k < winning_points.length do
+    # if (x_count & winning_points[k]).length == 3
+      # p (x_count & winning_points[k])
+      # win_one = true
+      # p win_one
+      # break
+    # end
+    # k += 1
+  # end
 
   # y_count = o_count & count_two
 
-  if count_two.length >= 3 && y_count.length == 3
-    win_two = true
-    elsif
-    win_two = false
-  end
+  # if count_two.length >= 3 && y_count.length == 3
+    # win_two = true
+    # elsif
+    # win_two = false
+  # end
   
   turn = 1
   while turn < 6
@@ -78,9 +76,17 @@ module Enumerable
     end
   
     p x_count  
-    win_one = (x_count & (a || b || c || d || e || f || g || h)).any?
+    k = 0
+    while k < winning_points.length do
+      if (x_count & winning_points[k]).length == 3
+        p (x_count & winning_points[k])
+        win_one = true
+        break
+      end
+      k += 1
+    end
     p win_one
-    if x_count.length >= 3 && win_one
+    if win_one
       puts "#{player_one} You have won!!!"
       break
     elsif board.all?(String)
@@ -104,9 +110,17 @@ module Enumerable
     end
   
     p o_count
-    win_two = (o_count & (a || b || c || d || e || f || g || h)).any?
+    g = 0
+    while g < winning_points.length do
+      if (o_count & winning_points[g]).length == 3
+        p (o_count & winning_points[g])
+        win_two = true
+        break
+      end
+      g += 1
+    end
     p win_two 
-    if o_count.length >= 3 && win_two
+    if win_two
       puts "Congrats #{player_two} You have won!!!"
       break
     elsif board.all?(String) && !win_two

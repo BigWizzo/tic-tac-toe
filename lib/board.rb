@@ -1,6 +1,6 @@
 # This is the Board class
 class Board
-  attr_reader :board, :a, :b, :c, :d, :e, :f, :g, :h
+  attr_reader :board, :winning_points
 
   def initialize
     @board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
