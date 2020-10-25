@@ -38,10 +38,11 @@ end
 
 # This is a class for player
 class Player
-  attr_reader :player, :player_move, :win
+  attr_reader :player, :chip, :player_move, :win
 
-  def initialize(player)
+  def initialize(player, chip)
     @player = player
+    @chip = chip
     @player_move = player_move
     @win = win
   end
@@ -53,10 +54,12 @@ end
   board = the_board.board
   winning_points = the_board.winning_points
 
-  player_first = Player.new("Player 1")
-  player_second = Player.new("Player 2")
+  player_first = Player.new("Player 1", "X")
+  player_second = Player.new("Player 2", "O")
   player_one = player_first.player
   player_two = player_second.player
+  chip_one = player_first.chip
+  chip_two = player_second.chip
 
   # move_one = player_one.player_move
   # move_two = player_two.player_move
@@ -75,8 +78,8 @@ end
   puts '2. To win the game, You need to get 3 chips in a straight line. (Horizontal, Vertical, or Diagonal)'
   puts '3. Try to avoid your opponent from winning by strategically placing your chips'
   puts '4. If no player makes a straight line of 3 chips, the game is a draw'
-  chip_one = 'x'.upcase
-  chip_two = 'o'.upcase
+  # chip_one = 'x'.upcase
+  # chip_two = 'o'.upcase
   puts "#{player_one} you play first your chip is #{chip_one}"
   puts "#{player_two} you play second your chip is #{chip_two}\n\n"
   puts "-----------LET'S BE PLAYING-------------"
