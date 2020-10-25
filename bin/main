@@ -3,25 +3,70 @@
 # rubocop:disable Lint/AssignmentInCondition
 
 # Importing the module Enumerable
-module Enumerable
-  require_relative '../lib/player.rb'
-  require_relative '../lib/board.rb'
+# module Enumerable
+  # require_relative '../lib/player.rb'
+  # require_relative '../lib/board.rb'
+
+# This is the Board class
+class Board
+  attr_reader :board, :winning_points
+
+  def initialize
+    @board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    @winning_points =
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [2, 4, 6],
+      [0, 4, 8]
+  end
+
+  def display_bd
+    display_bd = "
+      | #{@board[0]} | #{@board[1]} | #{@board[2]} |
+      -------------
+      | #{@board[3]} | #{@board[4]} | #{@board[5]} |
+      -------------
+      | #{@board[6]} | #{@board[7]} | #{@board[8]} |
+      "
+    display_bd
+  end
+end
+
+# This is a class for player
+class Player
+  attr_reader :player, :player_move, :win
+
+  def initialize(player)
+    @player = player
+    @player_move = player_move
+    @win = win
+  end
+
+end
+
 
   the_board = Board.new
   board = the_board.board
   winning_points = the_board.winning_points
 
-  player_one = Player.new
-  player_two = Player.new
-  move_one = player_one.player_move
-  move_two = player_two.player_move
-  win_one = player_one.win
-  win_two = player_two.win
+  player_first = Player.new("Player 1")
+  player_second = Player.new("Player 2")
+  player_one = player_first.player
+  player_two = player_second.player
 
-  puts "Player 1, What's your name?"
+  # move_one = player_one.player_move
+  # move_two = player_two.player_move
+  # win_one = player_one.win
+  # win_two = player_two.win
+
+  puts "#{player_one}, What's your name?"
   player_one = gets.chomp.capitalize!
 
-  puts "Player 2, What's your name?"
+  puts "#{player_two}, What's your name?"
   player_two = gets.chomp.capitalize!
 
   puts 'Welcome to the Tic Tac Toe Game'
@@ -56,14 +101,25 @@ module Enumerable
       end
     end
 
-    k = 0
-    while k < winning_points.length
-      if (x_count & winning_points[k]).length == 3
-        win_one = true
-        break
+    # def win_check(winning_points, x_count)
+      k = 0
+      while k < winning_points.length
+        if (x_count & winning_points[k]).length == 3
+          win_one = true
+          break
+        end
+        k += 1
       end
-      k += 1
-    end
+    # end
+
+    # win_check(winning_points, x_count)
+    
+    # def say(words)
+      # puts words4
+    # end
+    # 
+    # say("hello")
+
     if win_one
       puts "#{player_one} You have won the game!!!"
       break
@@ -105,6 +161,6 @@ module Enumerable
 
     turn += 1
   end
-end
+# end
 
 # rubocop:enable Lint/AssignmentInCondition
