@@ -9,7 +9,7 @@
 
 # This is the Board class
 class Board
-  attr_reader :board, :winning_points
+  attr_reader :board, :winning_points, :x_count, :o_count
 
   def initialize
     @board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -22,6 +22,8 @@ class Board
       [2, 5, 8],
       [2, 4, 6],
       [0, 4, 8]
+    @x_count = []
+    @o_count = []
   end
 
   def display_bd
@@ -38,13 +40,24 @@ end
 
 # This is a class for player
 class Player
-  attr_reader :player, :chip, :player_move, :win
+  attr_reader :player, :chip, :prompt, :the_move, :win
 
   def initialize(player, chip)
     @player = player
     @chip = chip
-    @player_move = player_move
+    @prompt = prompt
+    @the_move = the_move
     @win = win
+  end
+
+  def prompt_place_chip(prompt, player)
+    prompt = "#{player} Place Your Chip on the board."
+    prompt
+  end
+
+  def board_pos(the_move)
+    board_pos = board[the_move - 1]
+    board_pos
   end
 
 end
@@ -52,6 +65,8 @@ end
 
   the_board = Board.new
   board = the_board.board
+  x_count = the_board.x_count
+  o_count = the_board.o_count
   winning_points = the_board.winning_points
 
   player_first = Player.new("Player 1", "X")
@@ -60,6 +75,16 @@ end
   player_two = player_second.player
   chip_one = player_first.chip
   chip_two = player_second.chip
+  prompt_one = player_first.prompt
+  prompt_two = player_second.prompt
+  move_one = player_first.the_move
+  move_two = player_second.the_move
+  board_pos_one = player_first.board_pos(move_one)
+  board_pos_two = player_second.board_pos(move_two)
+  prompt_place_chip_one = player_first.prompt_place_chip(prompt_one, player_one)
+  prompt_place_chip_two = player_second.prompt_place_chip(prompt_two, player_two)
+  # range = player_first.prompt_place_chip(prompt_one, player_one)
+
 
   # move_one = player_one.player_move
   # move_two = player_two.player_move
@@ -84,25 +109,35 @@ end
   puts "#{player_two} you play second your chip is #{chip_two}\n\n"
   puts "-----------LET'S BE PLAYING-------------"
 
-  x_count = []
-  o_count = []
+  # x_count = []
+  # o_count = []
+
+  def range(the_move)
+    range = (1..9).include? the_move
+    range
+  end
 
   turn = 1
   while turn < 6
-    prompt_one = "#{player_one} Place Your Chip on the board."
-    puts prompt_one
-    while move_one = gets.chomp.to_i
-      range_one = (1..9).include? move_one
-      if range_one == true && board[move_one - 1].is_a?(Integer)
-        board[move_one - 1] = 'X'
-        x_count.push(move_one - 1)
-        puts the_board.display_bd
-        break
-      else
-        puts 'Your input is invalid. Put an available number between 1 - 9 on unoccupied spot'
-        puts prompt_one
+    # prompt_one = "#{player_one} Place Your Chip on the board."
+    # puts prompt_one
+    # prompt_place_chip_one = player_first.prompt_place_chip(prompt_one, player_one)
+    prompt_place_chip_one
+
+    # def hhhh
+      while move_one = gets.chomp.to_i
+        range(move_one)
+        if range == true && board_pos_one.is_a?(Integer)
+          board_pos_one = chip_one
+          x_count.push(move_one - 1)
+          puts the_board.display_bd
+          break
+        else
+          puts 'Your input is invalid. Put an available number between 1 - 9 on unoccupied spot'
+          puts prompt_one
+        end
       end
-    end
+    # end
 
     # def win_check(winning_points, x_count)
       k = 0
@@ -131,12 +166,14 @@ end
       break
     end
 
-    prompt_two = "#{player_two} Place Your Chip on the board."
-    puts prompt_two
+    # prompt_two = "#{player_two} Place Your Chip on the board."
+    # puts prompt_two
+    prompt_place_chip_two
+
     while move_two = gets.chomp.to_i
-      range_two = (1..9).include? move_two
-      if range_two == true && board[move_two - 1].is_a?(Integer)
-        board[move_two - 1] = 'O'
+      range(move_two)
+      if range == true && board_pos_two.is_a?(Integer)
+        board_pos_two = chip_two
         o_count.push(move_two - 1)
         puts the_board.display_bd
         break
