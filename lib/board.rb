@@ -1,6 +1,6 @@
 # This is the Board class
 class Board
-  attr_reader :board, :winning_points, :x_count, :o_count, :the_move, :arr, :re_prompt, :re_chip
+  attr_reader :board, :winning_points, :x_count, :o_count, :the_move, :arr, :re_prompt, :re_chip, :win
 
   def initialize
     @board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -19,6 +19,7 @@ class Board
     @arr = arr
     @re_prompt = re_prompt
     @re_chip = re_chip
+    @win = win
   end
 
   def display_bd
@@ -49,6 +50,17 @@ class Board
         puts 'Your input is invalid. Put an available number between 1 - 9'
         puts re_prompt
       end
+    end
+  end
+
+  def check_win(win)
+    k = 0
+    while k < winning_points.length
+      if (x_count & winning_points[k]).length == 3
+        win = true
+        break
+      end
+      k += 1
     end
   end
 

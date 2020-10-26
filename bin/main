@@ -19,6 +19,8 @@
   re_prompt_two = the_board.re_prompt
   re_chip_one = the_board.re_chip
   re_chip_two = the_board.re_chip
+  win_one = the_board.win
+  win_two = the_board.win
   winning_points = the_board.winning_points
 
   player_first = Player.new("Player 1", "X")
@@ -53,14 +55,16 @@
     puts prompt_place_chip_one
     the_board.get_input(move_one, x_count, chip_one, prompt_one)
 
-      k = 0
-      while k < winning_points.length
-        if (x_count & winning_points[k]).length == 3
-          win_one = true
-          break
-        end
-        k += 1
-      end
+      # k = 0
+      # while k < winning_points.length
+        # if (x_count & winning_points[k]).length == 3
+          # win_one = true
+          # break
+        # end
+        # k += 1
+      # end
+
+      the_board.check_win(win_one)
 
     if win_one
       puts "#{player_one} You have won the game!!!"
