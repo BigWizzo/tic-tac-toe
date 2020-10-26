@@ -1,6 +1,7 @@
 # This is the Board class
 class Board
   attr_reader :board, :winning_points, :x_count, :o_count
+  # , :the_move
 
   def initialize
     @board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -15,6 +16,7 @@ class Board
       [0, 4, 8]
     @x_count = []
     @o_count = []
+    # @the_move = the_move
   end
 
   def display_bd
@@ -27,4 +29,6 @@ class Board
       "
     display_bd
   end
+
+
 end
