@@ -4,64 +4,7 @@
 
 # Importing the module Enumerable
 # module Enumerable
-  # require_relative '../lib/player.rb'
-  # require_relative '../lib/board.rb'
-
-# This is the Board class
-class Board
-  attr_reader :board, :winning_points, :x_count, :o_count
-
-  def initialize
-    @board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    @winning_points =
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [2, 4, 6],
-      [0, 4, 8]
-    @x_count = []
-    @o_count = []
-  end
-
-  def display_bd
-    display_bd = "
-      | #{@board[0]} | #{@board[1]} | #{@board[2]} |
-      -------------
-      | #{@board[3]} | #{@board[4]} | #{@board[5]} |
-      -------------
-      | #{@board[6]} | #{@board[7]} | #{@board[8]} |
-      "
-    display_bd
-  end
-end
-
-# This is a class for player
-class Player
-  attr_reader :player, :chip, :prompt, :the_move, :win
-
-  def initialize(player, chip)
-    @player = player
-    @chip = chip
-    @prompt = prompt
-    @the_move = the_move
-    @win = win
-  end
-
-  def prompt_place_chip(prompt, player)
-    prompt = "#{player} Place Your Chip on the board."
-    prompt
-  end
-
-  # def board_pos(the_move)
-    # board_pos = board[the_move - 1]
-    # board_pos
-  # end
-
-end
-
+  require_relative '../lib/player.rb'
 
   the_board = Board.new
   board = the_board.board
@@ -85,11 +28,6 @@ end
   prompt_place_chip_two = player_second.prompt_place_chip(prompt_two, player_two)
   # range = player_first.prompt_place_chip(prompt_one, player_one)
 
-
-  # move_one = player_one.player_move
-  # move_two = player_two.player_move
-  # win_one = player_one.win
-  # win_two = player_two.win
 
   puts "#{player_one}, What's your name?"
   player_one = gets.chomp.capitalize!
