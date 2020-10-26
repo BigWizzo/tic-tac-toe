@@ -11,8 +11,10 @@
   board = the_board.board
   x_count = the_board.x_count
   o_count = the_board.o_count
-  # move_one = the_board.the_move
-  # move_two = the_board.the_move
+  move_one = the_board.the_move
+  move_two = the_board.the_move
+  arr_one = the_board.arr
+  arr_two = the_board.arr
   winning_points = the_board.winning_points
 
   player_first = Player.new("Player 1", "X")
@@ -48,9 +50,9 @@
 
       while move_one = gets.chomp.to_i
         range = (1..9).include? move_one
-        if range == true && board[move_one - 1].is_a?(Integer)
+        if range && the_board.board_pos(move_one).is_a?(Integer)
           board[move_one - 1] = chip_one
-          x_count.push(move_one - 1)
+          the_board.arr_push(x_count, move_one)
           puts the_board.display_bd
           break
         else

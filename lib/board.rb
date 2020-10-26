@@ -1,7 +1,6 @@
 # This is the Board class
 class Board
-  attr_reader :board, :winning_points, :x_count, :o_count
-  # , :the_move
+  attr_reader :board, :winning_points, :x_count, :o_count, :the_move, :arr
 
   def initialize
     @board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -16,7 +15,8 @@ class Board
       [0, 4, 8]
     @x_count = []
     @o_count = []
-    # @the_move = the_move
+    @the_move = the_move
+    @arr = arr
   end
 
   def display_bd
@@ -30,5 +30,11 @@ class Board
     display_bd
   end
 
+  def board_pos(the_move)
+    @board[the_move - 1]
+  end
 
+  def arr_push(arr, the_move)
+    arr.push(the_move - 1)
+  end
 end
