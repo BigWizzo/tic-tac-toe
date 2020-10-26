@@ -15,6 +15,10 @@
   move_two = the_board.the_move
   arr_one = the_board.arr
   arr_two = the_board.arr
+  re_prompt_one = the_board.re_prompt
+  re_prompt_two = the_board.re_prompt
+  re_chip_one = the_board.re_chip
+  re_chip_two = the_board.re_chip
   winning_points = the_board.winning_points
 
   player_first = Player.new("Player 1", "X")
@@ -47,19 +51,7 @@
   turn = 1
   while turn < 6
     puts prompt_place_chip_one
-
-      while move_one = gets.chomp.to_i
-        range = (1..9).include? move_one
-        if range && the_board.board_pos(move_one).is_a?(Integer)
-          board[move_one - 1] = chip_one
-          the_board.arr_push(x_count, move_one)
-          puts the_board.display_bd
-          break
-        else
-          puts 'Your input is invalid. Put an available number between 1 - 9 on unoccupied spot'
-          puts prompt_one
-        end
-      end
+    the_board.get_input(move_one, x_count, chip_one, prompt_one)
 
       k = 0
       while k < winning_points.length
@@ -79,19 +71,7 @@
     end
 
     puts prompt_place_chip_two
-
-    while move_two = gets.chomp.to_i
-      range = (1..9).include? move_two
-      if range == true && board[move_two - 1].is_a?(Integer)
-        board[move_two - 1] = chip_two
-        o_count.push(move_two - 1)
-        puts the_board.display_bd
-        break
-      else
-        puts 'Your input is invalid. Put an available number between 1 - 9'
-        puts prompt_two
-      end
-    end
+    the_board.get_input(move_two, o_count, chip_two, prompt_place_chip_two)
 
     g = 0
     while g < winning_points.length
