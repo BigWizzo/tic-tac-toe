@@ -55,10 +55,10 @@ class Player
     prompt
   end
 
-  def board_pos(the_move)
-    board_pos = board[the_move - 1]
-    board_pos
-  end
+  # def board_pos(the_move)
+    # board_pos = board[the_move - 1]
+    # board_pos
+  # end
 
 end
 
@@ -79,8 +79,8 @@ end
   prompt_two = player_second.prompt
   move_one = player_first.the_move
   move_two = player_second.the_move
-  board_pos_one = player_first.board_pos(move_one)
-  board_pos_two = player_second.board_pos(move_two)
+  # board_pos_one = player_first.board_pos(move_one)
+  # board_pos_two = player_second.board_pos(move_two)
   prompt_place_chip_one = player_first.prompt_place_chip(prompt_one, player_one)
   prompt_place_chip_two = player_second.prompt_place_chip(prompt_two, player_two)
   # range = player_first.prompt_place_chip(prompt_one, player_one)
@@ -112,10 +112,10 @@ end
   # x_count = []
   # o_count = []
 
-  def range(the_move)
-    range = (1..9).include? the_move
-    range
-  end
+  # def range(the_move)
+    # range = (1..9).include? the_move
+    # range
+  # end
 
   turn = 1
   while turn < 6
@@ -126,9 +126,9 @@ end
 
     # def hhhh
       while move_one = gets.chomp.to_i
-        range(move_one)
-        if range == true && board_pos_one.is_a?(Integer)
-          board_pos_one = chip_one
+        range = (1..9).include? move_one
+        if range == true && board[move_one - 1].is_a?(Integer)
+          board[move_one - 1] = chip_one
           x_count.push(move_one - 1)
           puts the_board.display_bd
           break
@@ -171,9 +171,9 @@ end
     prompt_place_chip_two
 
     while move_two = gets.chomp.to_i
-      range(move_two)
-      if range == true && board_pos_two.is_a?(Integer)
-        board_pos_two = chip_two
+      range = (1..9).include? move_two
+      if range == true && board[move_two - 1].is_a?(Integer)
+        board[move_two - 1] = chip_two
         o_count.push(move_two - 1)
         puts the_board.display_bd
         break
