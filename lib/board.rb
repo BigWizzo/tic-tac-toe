@@ -1,6 +1,6 @@
 # This is the Board class
 class Board
-  attr_reader :board, :winning_points, :x_count, :o_count, :the_move, :arr, :re_prompt, :re_chip, :win
+  attr_reader :board, :winning_points, :x_count, :o_count, :the_move, :arr, :re_prompt, :picked_spot, :invalid, :re_chip, :win
 
   def initialize
     @board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -18,6 +18,8 @@ class Board
     @the_move = the_move
     @arr = arr
     @re_prompt = re_prompt
+    @picked_spot = picked_spot
+    @invalid = invalid
     @re_chip = re_chip
     @win = win
   end
@@ -33,7 +35,7 @@ class Board
     display_bd
   end
 
-  def get_input(the_move, arr, re_chip, re_prompt)
+  def get_input(the_move, arr, re_chip, re_prompt, picked_spot, invalid)
     while the_move = gets.chomp.to_i
       range = (1..9).include? the_move
       if range
@@ -43,25 +45,26 @@ class Board
           puts display_bd
           break
         else
-          puts 'The spot you picked is already taken, try again'
+          puts picked_spot
           re_prompt
         end
       else
-        puts 'Your input is invalid. Put an available number between 1 - 9'
-        puts re_prompt
+        puts invalid
+        re_prompt
       end
     end
   end
 
-  def check_win(win)
+  def check_win(win, arr)
     k = 0
     while k < winning_points.length
-      if (x_count & winning_points[k]).length == 3
+      if (arr & winning_points[k]).length == 3
         win = true
         break
       end
       k += 1
     end
+    win
   end
 
 end

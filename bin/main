@@ -17,6 +17,8 @@
   arr_two = the_board.arr
   re_prompt_one = the_board.re_prompt
   re_prompt_two = the_board.re_prompt
+  picked_spot = the_board.picked_spot
+  invalid = the_board.invalid
   re_chip_one = the_board.re_chip
   re_chip_two = the_board.re_chip
   win_one = the_board.win
@@ -52,21 +54,12 @@
 
   turn = 1
   while turn < 6
+    picked_spot = 'The spot you picked is already taken, try again'
+    invalid = 'Your input is invalid. Put an available number between 1 - 9'
     puts prompt_place_chip_one
-    the_board.get_input(move_one, x_count, chip_one, prompt_one)
+    the_board.get_input(move_one, x_count, chip_one, prompt_one, picked_spot, invalid)
 
-      # k = 0
-      # while k < winning_points.length
-        # if (x_count & winning_points[k]).length == 3
-          # win_one = true
-          # break
-        # end
-        # k += 1
-      # end
-
-      the_board.check_win(win_one)
-
-    if win_one
+    if the_board.check_win(win_one, x_count)
       puts "#{player_one} You have won the game!!!"
       break
     elsif board.all?(String)
@@ -75,17 +68,9 @@
     end
 
     puts prompt_place_chip_two
-    the_board.get_input(move_two, o_count, chip_two, prompt_place_chip_two)
+    the_board.get_input(move_two, o_count, chip_two, prompt_two, picked_spot, invalid)
 
-    g = 0
-    while g < winning_points.length
-      if (o_count & winning_points[g]).length == 3
-        win_two = true
-        break
-      end
-      g += 1
-    end
-    if win_two
+    if the_board.check_win(win_two, o_count)
       puts "Congrats #{player_two} You have won the game!!!"
       break
     elsif board.all?(String) && !win_two
