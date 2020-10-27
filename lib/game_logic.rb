@@ -28,21 +28,21 @@ class TicTacToe
     return_value
   end
 
-  def wining_logic(array, element, symbol)
-    result = false
+  def wining_logic(array, element, symbol, _result)
     count = 0
     element.each do |y|
       if array[y - 1] == symbol
         count += 1
-        result = true if count == 3
+        _result = true if count == 3
       end
     end
-    result
   end
 
   def win_status(array = @new_array, symbol = @symbol)
+    result = false
     @win_array.each do |x|
-      wining_logic(array, x, symbol)
+      wining_logic(array, x, symbol, result)
     end
+    result
   end
 end
