@@ -1,3 +1,4 @@
+# This is the Board class
 class Board
   attr_reader :new_array
 
