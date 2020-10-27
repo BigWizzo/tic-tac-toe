@@ -37,12 +37,12 @@ class TicTacToe
         result = true if count == 3
       end
     end
+    result
   end
 
   def win_status(array = @new_array, symbol = @symbol)
     @win_array.each do |x|
       wining_logic(array, x, symbol)
     end
-    return_value
   end
 end
