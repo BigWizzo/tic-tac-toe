@@ -53,7 +53,7 @@ while game
   if game_check[0]
     puts board.display_board(game_check[1])
     if logic.win_status == true
-      puts "#{current_player} Wins Congratulations"
+      puts "#{current_player} Wins Congratulations!!!"
       game = false
     elsif logic.draw_status == true
       puts 'Game Draw. Try playing the game again!!!'
