@@ -2,7 +2,7 @@
 class Board
   attr_reader :new_array
 
-  # intializing board elements 
+  # intializing board elements
   def initialize
     @new_array = ['-', '-', '-', '-', '-', '-', '-', '-', '-']
   end
