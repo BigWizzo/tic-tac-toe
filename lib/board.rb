@@ -1,6 +1,6 @@
 # This is the Board class
 class Board
-  attr_reader :board, :winning_points, :x_count, :o_count, :the_move, :arr, :re_prompt, :picked_spot, :invalid, :re_chip, :win
+  attr_reader :board, :winning_points, :x_count, :o_count, :the_move, :arr, :re_prompt, :picked_spot, :invalid, :re_chip, :win, :congrats
 
   def initialize
     @board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -22,6 +22,7 @@ class Board
     @invalid = invalid
     @re_chip = re_chip
     @win = win
+    @congrats = congrats
   end
 
   def display_bd
@@ -65,6 +66,20 @@ class Board
       k += 1
     end
     win
+  end
+
+  # def game_over_status(player, arr)
+    # if the_board.check_win(win, arr)
+      # puts "#{player} You have won the game!!!"
+      # break
+    # elsif board.all?(String)
+      # puts 'This is a DRAW'
+      # break
+    # end
+  # end
+
+  def game_win(player, congrats)
+    puts congrats
   end
 
 end
