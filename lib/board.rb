@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# rubocop:disable Layout/LineLength, Metrics/ParameterLists
+
 # This is the Board class
 class Board
   attr_reader :board, :winning_points, :x_count, :o_count, :the_move, :arr, :re_prompt, :picked_spot, :invalid, :re_chip, :win
@@ -38,7 +40,7 @@ class Board
   end
 
   def get_input(the_move, arr, re_chip, re_prompt, picked_spot, invalid)
-    while the_move = gets.chomp.to_i
+    while (the_move = gets.chomp.to_i)
       range = (1..9).include? the_move
       if range
         if board[the_move - 1].is_a?(Integer)

@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# rubocop:disable Lint/ShadowedArgument
+
 require_relative '../lib/board.rb'
 
 # This is a class for player
@@ -18,3 +20,5 @@ class Player
     prompt
   end
 end
+
+# rubocop:enable Lint/ShadowedArgument
