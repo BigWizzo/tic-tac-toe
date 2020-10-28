@@ -68,18 +68,4 @@ class Board
     win
   end
 
-  # def game_over_status(player, arr)
-    # if the_board.check_win(win, arr)
-      # puts "#{player} You have won the game!!!"
-      # break
-    # elsif board.all?(String)
-      # puts 'This is a DRAW'
-      # break
-    # end
-  # end
-
-  def game_win(player, congrats)
-    puts congrats
-  end
-
 end
