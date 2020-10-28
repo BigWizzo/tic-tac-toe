@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This is the Board class
 class Board
   attr_reader :board, :winning_points, :x_count, :o_count, :the_move, :arr, :re_prompt, :picked_spot, :invalid, :re_chip, :win
@@ -66,5 +68,4 @@ class Board
     end
     win
   end
-
 end
