@@ -11,18 +11,10 @@
   board = the_board.board
   x_count = the_board.x_count
   o_count = the_board.o_count
-  move_one = the_board.the_move
-  move_two = the_board.the_move
-  arr_one = the_board.arr
-  arr_two = the_board.arr
-  re_prompt_one = the_board.re_prompt
-  re_prompt_two = the_board.re_prompt
+  the_move = the_board.the_move
   picked_spot = the_board.picked_spot
   invalid = the_board.invalid
-  re_chip_one = the_board.re_chip
-  re_chip_two = the_board.re_chip
-  win_one = the_board.win
-  win_two = the_board.win
+  win = the_board.win
   winning_points = the_board.winning_points
 
   player_first = Player.new("Player 1", "X")
@@ -57,9 +49,9 @@
     picked_spot = 'The spot you picked is already taken, try again'
     invalid = 'Your input is invalid. Put an available number between 1 - 9'
     puts prompt_place_chip_one
-    the_board.get_input(move_one, x_count, chip_one, prompt_one, picked_spot, invalid)
+    the_board.get_input(the_move, x_count, chip_one, prompt_one, picked_spot, invalid)
 
-    if the_board.check_win(win_one, x_count)
+    if the_board.check_win(win, x_count)
       puts "#{player_one} You have won the game!!!"
       break
     elsif board.all?(String)
@@ -68,12 +60,12 @@
     end
 
     puts prompt_place_chip_two
-    the_board.get_input(move_two, o_count, chip_two, prompt_two, picked_spot, invalid)
+    the_board.get_input(the_move, o_count, chip_two, prompt_two, picked_spot, invalid)
 
-    if the_board.check_win(win_two, o_count)
+    if the_board.check_win(win, o_count)
       puts "Congrats #{player_two} You have won the game!!!"
       break
-    elsif board.all?(String) && !win_two
+    elsif board.all?(String)
       puts 'This is a DRAW'
       break
     end
