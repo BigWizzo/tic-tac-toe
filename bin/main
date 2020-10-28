@@ -1,0 +1,67 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require_relative '../lib/board.rb'
+require_relative '../lib/player.rb'
+
+the_board = Board.new
+board = the_board.board
+x_count = the_board.x_count
+o_count = the_board.o_count
+the_move = the_board.the_move
+win = the_board.win
+
+player_first = Player.new('Player X', 'X')
+player_second = Player.new('Player O', 'O')
+player_one = player_first.player
+player_two = player_second.player
+chip_one = player_first.chip
+chip_two = player_second.chip
+prompt_one = player_first.prompt
+prompt_two = player_second.prompt
+
+puts 'Welcome to the Tic Tac Toe Game'
+puts 'Please read the Game instructions below.'
+puts '1. The board presented to you has 9 squares numbered from 1 - 9'
+puts '2. To win the game, You need to get 3 chips in a straight line. (Horizontal, Vertical, or Diagonal)'
+puts '3. Try to avoid your opponent from winning by strategically placing your chips'
+puts '4. If no player makes a straight line of 3 chips, the game is a draw'
+puts "#{player_one} you play first your chip is #{chip_one}"
+puts "#{player_two} you play second your chip is #{chip_two}\n\n"
+puts "-----------LET'S BE PLAYING-------------"
+
+puts the_board.display_bd
+
+turn = 1
+while turn < 6
+  picked_spot = 'The spot you picked is already taken, try again'
+  invalid = 'Your input is invalid. Put an available number between 1 - 9'
+  game_draw = 'This is a DRAW'
+
+  place = "#{player_one} Place Your Chip on the board."
+  prompt_place_chip_one = player_first.prompt_place_chip(prompt_one, player_one, place)
+  puts prompt_place_chip_one
+  the_board.get_input(the_move, x_count, chip_one, prompt_one, picked_spot, invalid)
+
+  if the_board.check_win(win, x_count)
+    puts "Congrats #{player_one} You have won the game!!!"
+    break
+  elsif board.all?(String)
+    puts game_draw
+    break
+  end
+  place = "#{player_two} Place Your Chip on the board."
+  prompt_place_chip_two = player_second.prompt_place_chip(prompt_two, player_two, place)
+  puts prompt_place_chip_two
+  the_board.get_input(the_move, o_count, chip_two, prompt_two, picked_spot, invalid)
+
+  if the_board.check_win(win, o_count)
+    puts "Congrats #{player_two} You have won the game!!!"
+    break
+  elsif board.all?(String)
+    puts game_draw
+    break
+  end
+
+  turn += 1
+end
