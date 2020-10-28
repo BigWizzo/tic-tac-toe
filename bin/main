@@ -34,6 +34,8 @@
   puts "#{player_two} you play second your chip is #{chip_two}\n\n"
   puts "-----------LET'S BE PLAYING-------------"
 
+  puts the_board.display_bd
+
   turn = 1
   while turn < 6
     picked_spot = 'The spot you picked is already taken, try again'
