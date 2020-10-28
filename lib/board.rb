@@ -1,6 +1,6 @@
 # This is the Board class
 class Board
-  attr_reader :board, :winning_points, :x_count, :o_count, :the_move, :arr, :re_prompt, :picked_spot, :invalid, :re_chip, :win, :congrats
+  attr_reader :board, :winning_points, :x_count, :o_count, :the_move, :arr, :re_prompt, :picked_spot, :invalid, :re_chip, :win
 
   def initialize
     @board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -22,7 +22,6 @@ class Board
     @invalid = invalid
     @re_chip = re_chip
     @win = win
-    @congrats = congrats
   end
 
   def display_bd

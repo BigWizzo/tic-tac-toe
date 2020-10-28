@@ -2,8 +2,6 @@
 
 # rubocop:disable Lint/AssignmentInCondition
 
-# Importing the module Enumerable
-# module Enumerable
   require_relative '../lib/board.rb'
   require_relative '../lib/player.rb'
 
@@ -17,22 +15,14 @@
   win = the_board.win
   winning_points = the_board.winning_points
 
-  player_first = Player.new("Player 1", "X")
-  player_second = Player.new("Player 2", "O")
+  player_first = Player.new("Player X", "X")
+  player_second = Player.new("Player O", "O")
   player_one = player_first.player
   player_two = player_second.player
   chip_one = player_first.chip
   chip_two = player_second.chip
   prompt_one = player_first.prompt
   prompt_two = player_second.prompt
-  prompt_place_chip_one = player_first.prompt_place_chip(prompt_one, player_one)
-  prompt_place_chip_two = player_second.prompt_place_chip(prompt_two, player_two)
-
-  puts "#{player_one}, What's your name?"
-  player_one = gets.chomp.capitalize!
-
-  puts "#{player_two}, What's your name?"
-  player_two = gets.chomp.capitalize!
 
   puts 'Welcome to the Tic Tac Toe Game'
   puts 'Please read the Game instructions below.'
@@ -50,6 +40,8 @@
     invalid = 'Your input is invalid. Put an available number between 1 - 9'
     game_draw = 'This is a DRAW'
 
+    place = "#{player_one} Place Your Chip on the board."
+    prompt_place_chip_one = player_first.prompt_place_chip(prompt_one, player_one, place)
     puts prompt_place_chip_one
     the_board.get_input(the_move, x_count, chip_one, prompt_one, picked_spot, invalid)
 
@@ -60,7 +52,8 @@
       puts game_draw
       break
     end
-
+    place = "#{player_two} Place Your Chip on the board."
+    prompt_place_chip_two = player_second.prompt_place_chip(prompt_two, player_two, place)
     puts prompt_place_chip_two
     the_board.get_input(the_move, o_count, chip_two, prompt_two, picked_spot, invalid)
 
@@ -74,6 +67,5 @@
 
     turn += 1
   end
-# end
 
 # rubocop:enable Lint/AssignmentInCondition
