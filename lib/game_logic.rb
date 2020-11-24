@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TicTacToe
   attr_accessor :new_array
   attr_reader :win_array

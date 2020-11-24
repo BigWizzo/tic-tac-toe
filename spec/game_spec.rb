@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # rubocop:disable Layout/LineLength
 require './lib/board.rb'
 require './lib/logic.rb'

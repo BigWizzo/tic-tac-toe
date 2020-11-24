@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # rubocop:disable Lint/ShadowedArgument
 
 # This is a class for player
