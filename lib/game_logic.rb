@@ -48,3 +48,5 @@ class TicTacToe
     result
   end
 end
+
+# frozen_string_literal: false
