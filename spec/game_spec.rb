@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# rubocop:disable Layout/LineLength
+# rubocop:disable Layout/LineLength, Metrics/BlockLength
 require './lib/board.rb'
 require './lib/logic.rb'
 
@@ -79,4 +79,4 @@ describe TicTacToe do
     end
   end
 end
-# rubocop:enable Layout/LineLength
+# rubocop:enable Layout/LineLength, Metrics/BlockLength

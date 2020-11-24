@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
+# game logic goes here
 class TicTacToe
+  # game logic begins here
   attr_accessor :new_array
   attr_reader :win_array
   attr_reader :win_variable
