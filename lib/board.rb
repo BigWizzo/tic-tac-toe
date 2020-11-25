@@ -1,4 +1,3 @@
-
 # rubocop:disable Layout/LineLength, Metrics/ParameterLists
 
 # This is the Board class
