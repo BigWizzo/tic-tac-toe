@@ -102,4 +102,3 @@ RSpec.configure do |config|
 =end
 end
 # rubocop:enable Style/BlockComments
-# frozen_string_literal: false

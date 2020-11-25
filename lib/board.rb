@@ -73,4 +73,3 @@ class Board
 end
 
 # rubocop:enable Layout/LineLength, Metrics/ParameterLists, Metrics/MethodLength, Metrics/AbcSize
-# frozen_string_literal: false

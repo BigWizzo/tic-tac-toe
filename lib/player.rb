@@ -20,4 +20,3 @@ class Player
 end
 
 # rubocop:enable Lint/ShadowedArgument
-# frozen_string_literal: false
