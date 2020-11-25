@@ -1,6 +1,5 @@
-# frozen_string_literal: true
 
-# rubocop:disable Layout/LineLength, Metrics/ParameterLists, Metrics/MethodLength, Metrics/AbcSize
+# rubocop:disable Layout/LineLength, Metrics/ParameterLists
 
 # This is the Board class
 class Board
@@ -72,4 +71,4 @@ class Board
   end
 end
 
-# rubocop:enable Layout/LineLength, Metrics/ParameterLists, Metrics/MethodLength, Metrics/AbcSize
+# rubocop:enable Layout/LineLength, Metrics/ParameterLists

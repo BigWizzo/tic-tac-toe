@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # game logic goes here
 class TicTacToe
   # game logic begins here
