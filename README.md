@@ -4,8 +4,6 @@
 
 > Useing ruby object oriented programming to develop the game.
 
-
-
 Additional description about the project and its features.
 
 ## Built With
@@ -19,11 +17,13 @@ Additional description about the project and its features.
 
 To get a local copy up and running follow these simple example steps.
 
-### open Terminal
-### Download Repository or git clone https://github.com/BigWizzo/tic-tac-toe.git
-### cd tic-tac-toe
-### ruby bin/main
-### Instructions to play
+- open Terminal
+- Download Repository or git clone https://github.com/BigWizzo/tic-tac-toe.git
+- cd tic-tac-toe
+- run `ruby bin/main`
+
+## Instructions to play
+
 > 1. The board has 9 squares numbered from 1 - 9
 > 2. Take turns to place chips into the given squares
 > 3. To win the game, You need to get 3 chips in a straight line. (Horizontal, Vertical, or Diagonal)
@@ -35,8 +35,9 @@ To get a local copy up and running follow these simple example steps.
 ## Authors
 
 👤 **Will Nyamunokora**
-- Github: [@githubhandle](https://github.com/bigwizzo) 
-- Linkedin: [linkedin](https://linkedin.com/in/willnyamunokora) 
+
+- Github: [@githubhandle](https://github.com/bigwizzo)
+- Linkedin: [linkedin](https://linkedin.com/in/willnyamunokora)
 
 👤 **Gabriel Gitonga**
 
