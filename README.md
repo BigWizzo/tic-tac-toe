@@ -1,8 +1,10 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
+![screenshot](./screenshot.png)
+
 # TicTacToe
 
-> Useing ruby object oriented programming to develop the game.
+> Using ruby object oriented programming to develop the game.
 
 Additional description about the project and its features.
 
